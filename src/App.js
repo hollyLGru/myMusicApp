@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-// import MenuIcon from '@mui/icons-material/Menu';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+// import LogInCard from './LogInCard'
+
 
 class App extends Component {
   constructor(){
@@ -16,9 +17,19 @@ class App extends Component {
     }
   };
 
+  handleClick = () => {
+    this.state.isClicked ? 
+      this.setState({loggedIn : true}) : this.setState({loggedIn : false})
+  }
+
   render() {
-  return (
-    <Box sx={{ flexGrow: 1,  }}>
+    return !this.state.loggedIn ? 
+    (
+      <p>Not logged In</p>
+    )
+    : (
+
+      <div>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -28,7 +39,6 @@ class App extends Component {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             My Music App
@@ -36,7 +46,9 @@ class App extends Component {
 
         </Toolbar>
       </AppBar>
-      {/* type here ! */}
+
+
+
       <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
       <Box
       component="form"
@@ -50,13 +62,14 @@ class App extends Component {
       <br/>
       <TextField id="standard-basic" label="Password*" variant="standard" />
     </Box>
-    <br/>    
-    </div>
-    <Button variant="contained" style={{ width: '25ch', display: 'flex', alignItems: 'center', justifyContent: 'center', margin:'auto' }} >Login</Button>
+    </div>   
+    <br/>     
+    <Button variant="contained" onClick={(e) => {this.handleClick(e)}} style={{ width: '25ch', display: 'flex', alignItems: 'center', justifyContent: 'center', margin:'auto' }} >Login</Button>
 
-    </Box>
-    
-  );
-}}
+
+      </div>
+
+
+)}}
 
 export default App;

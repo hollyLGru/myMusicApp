@@ -1,18 +1,17 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-// import MenuIcon from '@mui/icons-material/Menu';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
-export default function LogInScreen() {
+function LogInCard(props) {
 
 
   return (
-    <Box sx={{ flexGrow: 1,  }}>
+    <div>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -22,7 +21,6 @@ export default function LogInScreen() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             My Music App
@@ -30,7 +28,6 @@ export default function LogInScreen() {
 
         </Toolbar>
       </AppBar>
-      {/* type here ! */}
       <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
       <Box
       component="form"
@@ -45,10 +42,12 @@ export default function LogInScreen() {
       <TextField id="standard-basic" label="Password*" variant="standard" />
     </Box>
     <br/>    
-    </div>
-    <Button variant="contained" style={{ width: '25ch', display: 'flex', alignItems: 'center', justifyContent: 'center', margin:'auto' }} >Login</Button>
+    <Button variant="contained" onClick={props.handleClick} style={{ width: '25ch', display: 'flex', alignItems: 'center', justifyContent: 'center', margin:'auto' }} >Login</Button>
 
-    </Box>
+    </div>
+      </div>
     
   );
 }
+
+export default LogInCard;
