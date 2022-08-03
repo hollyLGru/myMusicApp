@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -8,15 +8,9 @@ import IconButton from '@mui/material/IconButton';
 // import MenuIcon from '@mui/icons-material/Menu';
 import TextField from '@mui/material/TextField';
 
-class App extends Component {
-  constructor(){
-    super()
-    this.state = {
-      loggedIn: true
-    }
-  };
+export default function LogInScreen() {
 
-  render() {
+
   return (
     <Box sx={{ flexGrow: 1,  }}>
       <AppBar position="static">
@@ -57,6 +51,4 @@ class App extends Component {
     </Box>
     
   );
-}}
-
-export default App;
+}
