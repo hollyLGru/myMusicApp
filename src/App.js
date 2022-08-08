@@ -6,7 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-// import LogInCard from './LogInCard'
+import Dashboard from './components/Dashboard';
+import NavBar from './components/NavBar'
 
 
 class App extends Component {
@@ -25,27 +26,18 @@ class App extends Component {
   render() {
     return !this.state.loggedIn ? 
     (
-      <p>Not logged In</p>
+      <div>
+      <NavBar />
+      <br/>
+      <Dashboard />
+      </div>
     )
     : (
+      
 
       <div>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            My Music App
-          </Typography>
-
-        </Toolbar>
-      </AppBar>
+        <NavBar/>
+        <br/>
 
 
 
