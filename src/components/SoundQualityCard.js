@@ -9,7 +9,12 @@ import Select from '@mui/material/Select';
 
 
 function SoundQualityCard(props) {
-const [like, setLike] = useState(false);
+const [quality, setQuality] = useState(0);
+
+const onQualityChange = (e) => {
+  setQuality(e.target.value);
+  console.log(quality)
+}
         
     return(
         <Card sx={{ minWidth: 275,  margin: "5%" }}>
@@ -28,11 +33,10 @@ const [like, setLike] = useState(false);
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
-        //   onChange={handleChange}
+          onChange={onQualityChange}
+          value={quality}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
+          <MenuItem value={0}>none</MenuItem>
           <MenuItem value={1}>Low</MenuItem>
           <MenuItem value={2}>Normal </MenuItem>
           <MenuItem value={3}>High</MenuItem>
