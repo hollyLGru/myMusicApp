@@ -7,7 +7,12 @@ import Slider from '@mui/material/Slider';
 
 
 function MasterVolumeCard(props) {
-const [like, setLike] = useState(false);
+const [volume, setVolume] = useState(20);
+
+const onVolumeChange = (e) => {
+  setVolume(e.target.value);
+  console.log(volume)
+}
         
     return(
         <Card sx={{ minWidth: 275,  margin: "5%" }}>
@@ -26,6 +31,7 @@ const [like, setLike] = useState(false);
         marks
         min={0}
         max={100}
+        onChange={onVolumeChange}
       />
         </CardContent>
 

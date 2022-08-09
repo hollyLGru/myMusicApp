@@ -6,15 +6,13 @@ import Typography from '@mui/material/Typography';
 import Switch from '@mui/material/Switch';
 
 function OnlineCard(props) {
-const [online, setOnline] = useState(false);
+const [online, setOnline] = useState(true);
 
 const handleChange = () => {
     setOnline(!online);
-
-    if (online) {
-        <p>You are online</p>
-    }
-
+    if(online) {
+      console.log("you are online!")
+    } else {console.log("are are offline")}
 }
         
     return(
