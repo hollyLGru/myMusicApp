@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -14,13 +11,20 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      loggedIn: true
+      loggedIn: true,
+      userName: ""
     }
   };
 
   handleClick = () => {
+    // alert(`${this.state.userName}`)
     this.state.isClicked ? 
       this.setState({loggedIn : true}) : this.setState({loggedIn : false})
+  }
+
+  handleInput = (e) => {
+    this.setState({
+        userName: e.target.value})
   }
 
   render() {
@@ -29,7 +33,7 @@ class App extends Component {
       <div>
       <NavBar />
       <br/>
-      <Dashboard />
+      <Dashboard userName={this.state.userName} />
       </div>
     )
     : (
@@ -50,7 +54,7 @@ class App extends Component {
       noValidate
       autoComplete="off"
     >
-      <TextField id="standard-basic" label="Username*" variant="standard" />
+      <TextField id="standard-basic" label="Username*" variant="standard"  value={this.state.userName} onChange={this.handleInput} />
       <br/>
       <TextField id="standard-basic" label="Password*" variant="standard" />
     </Box>
