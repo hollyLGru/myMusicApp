@@ -9,12 +9,12 @@ import Select from '@mui/material/Select';
 
 
 function SoundQualityCard(props) {
-const [quality, setQuality] = useState(0);
+  const {quality, setQuality} = props
 
-const onQualityChange = (e) => {
-  setQuality(e.target.value);
-  console.log(quality)
-}
+  const onQualityChange = (e) => {
+    setQuality(e.target.value);
+    console.log(quality)
+  }
         
     return(
         <Card sx={{ minWidth: 275,  margin: "5%" }}>

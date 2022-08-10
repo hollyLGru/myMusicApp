@@ -6,7 +6,7 @@ import Slider from '@mui/material/Slider';
 
 
 function MasterVolumeCard(props) {
-const [volume, setVolume] = useState(20);
+const {volume, setVolume} = props
 
 const onVolumeChange = (e) => {
   setVolume(e.target.value);

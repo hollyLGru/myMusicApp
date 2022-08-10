@@ -5,10 +5,11 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Switch from '@mui/material/Switch';
 
-function OnlineCard(props, _ref) {
-const [online, setOnline] = useState(true);
+function OnlineCard(props) {
+// const [online, setOnline] = useState(true);
+const {online, setOnline} = props;
 
-const handleChange = () => {
+const handleOnlineChange = () => {
     setOnline(!online);
     if(online) {
       console.log("you are online!")
@@ -27,7 +28,7 @@ const handleChange = () => {
           <Typography sx={{ mb: 1.5 }} color="black">
             Is this application connected to the internet?
           </Typography>
-          <Switch onClick={handleChange} style={{color: "red"}} />
+          <Switch onClick={handleOnlineChange} style={{color: "red"}} />
         </CardContent>
 
       </Card>

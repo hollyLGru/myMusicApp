@@ -5,6 +5,9 @@ import SoundQualityCard from "./SoundQualityCard";
 
 function Dashboard(props) {
 const [notifications, setNotifications] = useState([]);
+const [online, setOnline] = useState(true);
+const [volume, setVolume] = useState(20);
+const [quality, setQuality] = useState(0);
 
 useEffect(() => {
     if (!online) {
@@ -13,12 +16,13 @@ useEffect(() => {
     
     if (volume > 80 ) {
         notifications.push("Listening to music at a high volume could cause long-term hearing loss")
+        console.log("inside Useeffect")
     }
     
     if (quality == 1){
         notifications.push("Music quality is degraded. Increase quality if your connection allows it.")
     }
-}, [notifications]); 
+},  [notifications, volume, quality, online]); 
 
 
 
@@ -28,9 +32,9 @@ const {userName} = props;
         <div>
                 <h1 style={{marginLeft: "8%", color: "grey"}}>Welcome {userName}</h1>
                 <div style={{display: "flex", justifyContent: "space-evenly"}}>
-                    <Onlinecard/>
-                    <MasterVolumeCard/>
-                    <SoundQualityCard/>
+                    <Onlinecard  online={online} setOnline= {setOnline}/>
+                    <MasterVolumeCard volume={volume} setVolume={setVolume} />
+                    <SoundQualityCard quality={quality} setQuality={setQuality}  />
                 </div>
                 <h1 style={{marginLeft: "8%"}}>System Notifications:</h1>
                 <p> 
